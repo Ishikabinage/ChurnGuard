@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="row justify-content-center">
+  <div class="col-md-5">
+    <div class="card p-5 text-center">
+      <h4 class="fw-bold mb-4">🛡️ Prediction Result</h4>
+
+      <div class="alert alert-{{ color }} py-4">
+        <p style="font-size:1.8rem; font-weight:700; margin-bottom:4px;">{{ result }}</p>
+        <p class="fs-5 mb-0">Churn Probability: <strong>{{ probability }}%</strong></p>
+      </div>
+
+      <p class="text-muted mt-3">
+        {% if color == 'danger' %}
+          ⚠️ This customer is at high risk of leaving. Consider offering a discount or better plan.
+        {% else %}
+          ✅ This customer is likely to stay. Keep up the good service!
+        {% endif %}
+      </p>
+
+      <div class="d-flex gap-2 mt-3">
+        <a href="/predict" class="btn w-50 text-white" style="background:#4f46e5;">New Prediction</a>
+        <a href="/dashboard" class="btn w-50 btn-outline-secondary">Dashboard</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

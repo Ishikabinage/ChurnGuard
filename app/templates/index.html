@@ -1,0 +1,179 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="row justify-content-center">
+  <div class="col-md-8">
+    <div class="card p-4">
+      <h4 class="fw-bold mb-1">New Prediction</h4>
+      <p class="text-muted small mb-4">Fill in customer details to predict churn</p>
+
+      <form action="/predict" method="POST">
+        <div class="row g-3">
+
+          <div class="col-md-6">
+            <label class="form-label">Gender</label>
+            <select name="gender" class="form-select">
+              <option value="1">Male</option>
+              <option value="0">Female</option>
+            </select>
+          </div>
+
+          <div class="col-md-6">
+            <label class="form-label">Senior Citizen</label>
+            <select name="SeniorCitizen" class="form-select">
+              <option value="0">No</option>
+              <option value="1">Yes</option>
+            </select>
+          </div>
+
+          <div class="col-md-6">
+            <label class="form-label">Partner</label>
+            <select name="Partner" class="form-select">
+              <option value="1">Yes</option>
+              <option value="0">No</option>
+            </select>
+          </div>
+
+          <div class="col-md-6">
+            <label class="form-label">Dependents</label>
+            <select name="Dependents" class="form-select">
+              <option value="0">No</option>
+              <option value="1">Yes</option>
+            </select>
+          </div>
+
+          <div class="col-md-6">
+            <label class="form-label">Tenure (months)</label>
+            <input type="number" name="tenure" class="form-control" placeholder="e.g. 12" min="0" max="72" required>
+          </div>
+
+          <div class="col-md-6">
+            <label class="form-label">Monthly Charges ($)</label>
+            <input type="number" name="MonthlyCharges" class="form-control" placeholder="e.g. 65.5" step="0.01" required>
+          </div>
+
+          <div class="col-md-6">
+            <label class="form-label">Total Charges ($)</label>
+            <input type="number" name="TotalCharges" class="form-control" placeholder="e.g. 786.0" step="0.01" required>
+          </div>
+
+          <div class="col-md-6">
+            <label class="form-label">Phone Service</label>
+            <select name="PhoneService" class="form-select">
+              <option value="1">Yes</option>
+              <option value="0">No</option>
+            </select>
+          </div>
+
+          <div class="col-md-6">
+            <label class="form-label">Multiple Lines</label>
+            <select name="MultipleLines" class="form-select">
+              <option value="0">No</option>
+              <option value="1">Yes</option>
+              <option value="2">No phone service</option>
+            </select>
+          </div>
+
+          <div class="col-md-6">
+            <label class="form-label">Internet Service</label>
+            <select name="InternetService" class="form-select">
+              <option value="0">DSL</option>
+              <option value="1">Fiber optic</option>
+              <option value="2">No</option>
+            </select>
+          </div>
+
+          <div class="col-md-6">
+            <label class="form-label">Online Security</label>
+            <select name="OnlineSecurity" class="form-select">
+              <option value="0">No</option>
+              <option value="1">Yes</option>
+              <option value="2">No internet</option>
+            </select>
+          </div>
+
+          <div class="col-md-6">
+            <label class="form-label">Online Backup</label>
+            <select name="OnlineBackup" class="form-select">
+              <option value="0">No</option>
+              <option value="1">Yes</option>
+              <option value="2">No internet</option>
+            </select>
+          </div>
+
+          <div class="col-md-6">
+            <label class="form-label">Device Protection</label>
+            <select name="DeviceProtection" class="form-select">
+              <option value="0">No</option>
+              <option value="1">Yes</option>
+              <option value="2">No internet</option>
+            </select>
+          </div>
+
+          <div class="col-md-6">
+            <label class="form-label">Tech Support</label>
+            <select name="TechSupport" class="form-select">
+              <option value="0">No</option>
+              <option value="1">Yes</option>
+              <option value="2">No internet</option>
+            </select>
+          </div>
+
+          <div class="col-md-6">
+            <label class="form-label">Streaming TV</label>
+            <select name="StreamingTV" class="form-select">
+              <option value="0">No</option>
+              <option value="1">Yes</option>
+              <option value="2">No internet</option>
+            </select>
+          </div>
+
+          <div class="col-md-6">
+            <label class="form-label">Streaming Movies</label>
+            <select name="StreamingMovies" class="form-select">
+              <option value="0">No</option>
+              <option value="1">Yes</option>
+              <option value="2">No internet</option>
+            </select>
+          </div>
+
+          <div class="col-md-6">
+            <label class="form-label">Contract Type</label>
+            <select name="Contract" class="form-select">
+              <option value="0">Month-to-month</option>
+              <option value="1">One year</option>
+              <option value="2">Two year</option>
+            </select>
+          </div>
+
+          <div class="col-md-6">
+            <label class="form-label">Paperless Billing</label>
+            <select name="PaperlessBilling" class="form-select">
+              <option value="1">Yes</option>
+              <option value="0">No</option>
+            </select>
+          </div>
+
+          <div class="col-md-12">
+            <label class="form-label">Payment Method</label>
+            <select name="PaymentMethod" class="form-select">
+              <option value="0">Bank transfer (automatic)</option>
+              <option value="1">Credit card (automatic)</option>
+              <option value="2">Electronic check</option>
+              <option value="3">Mailed check</option>
+            </select>
+          </div>
+
+          <div class="col-12 mt-3">
+            <button type="submit" class="btn w-100 py-2 fs-5 text-white" style="background:#4f46e5;">
+              Predict Churn ➜
+            </button>
+          </div>
+
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

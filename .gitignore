@@ -1,0 +1,7 @@
+venv/
+__pycache__/
+*.pyc
+app/__pycache__/
+app/churnguard.db
+.env
+*.npy
